@@ -29,3 +29,28 @@ const mantainCnnxn = () => {
     }, 5000);
 };
 
+const sendMsg = () => {
+    message=document.querySelector(".send").value;
+    if(message){
+        sendServer();
+    }
+}
+
+const sendServer = () => {
+    promisseRequest = axios
+    .post("https://mock-api.driven.com.br/api/vm/uol/messages", {
+        from: urname,
+        to: "All",
+        text: message,
+        type: "message",
+    })
+    .then((answr) => {
+        prmss = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages");
+        prmss.then(sendAnswer);
+        document.getElementById("send").value = "";
+    })
+    .catch(logout);
+    
+}
+
+
