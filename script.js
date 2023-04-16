@@ -72,5 +72,35 @@ const chatMssgs = () => {
 } 
 
 const sendAnswer = (answr) => {
-    
+    messages.innerHTML="";
+    let info = answr.data;
+    messages = document.getElementById("chat");
+    for(let i=0; i<info.length; i++){
+        if(info[i].type == "status"){
+            messages.insertAdjacentHTML("beforeend",
+            `<div class="msgReceivedStatus message${[i]}">
+                <div class="msgSize">
+                    <p class="Time">(${info.[i].time})</p>
+                    <p class="For"><b>${info.[i].from}</p> to <b>${info[i].to}:</b><>
+                    ${info.[i].text}</p>
+                </div>
+            </div>
+            <div class="space"></div>`
+            );
+        } else if(info[i].to == nome){
+            messages.insertAdjacentHTML("beforeend",
+            `<div class="msgReceivedPvt message${[i]}">
+                <div class="msgSize">
+                    <p class="Time">(${info.[i].time})</p>
+                    <p class="For"><b>${info.[i].from}</p> to <b>${info[i].to}:</b><>
+                    ${info.[i].text}</p>
+                </div>
+            </div>
+            <div class="space"></div>`
+            );
+        }
+    }
+    let arraySize = info.length-1;
+    let elementShow = document.querySelector(`.message${arraySize}`);
+    elementShow.scrollIntoView();
 }
