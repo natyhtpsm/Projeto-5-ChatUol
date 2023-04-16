@@ -120,6 +120,7 @@ input{
 }
 
 .msgReceivedStts{
+    z-index: 3;
     width: 100vw;
     height: auto;
     font-size: 14px;
@@ -139,6 +140,7 @@ input{
 }
 
 .msgReceivedMsg{
+    z-index: 3;
     background-color: white;
     width: 100vw;
     height: auto;
@@ -166,6 +168,7 @@ input{
 }
 
 .Time{
+    z-index: 3;
     font-size: 14px;
     font-style: normal;
     font-weight: 300;
@@ -174,3 +177,25 @@ input{
     color: grey;
     padding-right: 5px;
 }
+
+.To, .txt{
+    max-width: 100%;
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    text-align: left;
+    padding-right: 5px;
+    
+}
+
+.To{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.space{
+    width:100%
+
+}
+
