@@ -3,21 +3,48 @@ body{
 }
 
 .container{
-    width: 375px;
-    height: 667px;
-    background-color: black;
+    display: none;
 }
-.topo{
+
+.top{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     height: 80px;
-    width: 375px;
-    top: 0px;
-    left: 0px;
-    background-color: aqua;
+    background-color: white;
 }
-.barra-inf{
+.logo{
+    height: 53px;
+    width: 75px;
+    top: 16px;
+    left: 22px;
+}
+.bottom-bar{
     height: 80px;
-    width: 375px;
-    bottom: 0px;
-    left: 0px;
-    color: blue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    bottom: 0;
+}
+
+.send{
+    height: 30px;
+    width: 310px;
+    font-size: 18px;
+    font-weight: 400;
+    text-align: center;
+
+}
+
+.sendOutline{
+    font-size: 26px;
+}
+
+.chat{
+    height: 100vh;
+    padding-top: 106px;
+    padding-bottom: 84px;
+    dis
 }
