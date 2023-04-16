@@ -118,3 +118,59 @@ input{
     
 
 }
+
+.msgReceivedStts{
+    width: 100vw;
+    height: auto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 7px;
+    background-color: #DCDCDC;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.msgReceivedMsg{
+    background-color: white;
+    width: 100vw;
+    height: auto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 7px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.msgSize{
+    width: 97vw;
+    height: auto;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.Time{
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 16px;
+    text-align: left;
+    color: grey;
+    padding-right: 5px;
+}
