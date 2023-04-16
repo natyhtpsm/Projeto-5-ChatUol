@@ -9,6 +9,7 @@ const getName = ()=> {
     urname= document.querySelector(".name").value;
     if(urname){
         document.getElementById("login").style.display= "none";
+    
         enterChat();
     }
 };
@@ -75,32 +76,39 @@ const sendAnswer = (answr) => {
     messages.innerHTML="";
     let info = answr.data;
     messages = document.getElementById("chat");
-    for(let i=0; i<info.length; i++){
-        if(info[i].type == "status"){
-            messages.insertAdjacentHTML("beforeend",
-            `<div class="msgReceivedStatus message${[i]}">
-                <div class="msgSize">
-                    <p class="Time">(${info.[i].time})</p>
-                    <p class="For"><b>${info.[i].from}</p> to <b>${info[i].to}:</b><>
-                    ${info.[i].text}</p>
-                </div>
+    for(let i = 0 ; i < informacoes.length ; i++){
+      if(info[i].type == "status"){
+        messages.insertAdjacentHTML("beforeend",
+          `<div class="msgReceivedStts message${[i]}" >
+            <div class="msgSize">
+              <p class="Time">(${info[i].time})</p>
+              <p class="To"><b>${info[i].from}</b> to <b>${info[i].to}:</b> </p>
+              <p class="txt"> ${info[i].text}</p>
             </div>
-            <div class="space"></div>`
-            );
-        } else if(info[i].to == nome){
-            messages.insertAdjacentHTML("beforeend",
-            `<div class="msgReceivedPvt message${[i]}">
-                <div class="msgSize">
-                    <p class="Time">(${info.[i].time})</p>
-                    <p class="For"><b>${info.[i].from}</p> to <b>${info[i].to}:</b><>
-                    ${info.[i].text}</p>
-                </div>
+          </div>
+          <div class="space"></div>`
+        );
+      } else if(info[i].type == "message"){
+        messages.insertAdjacentHTML("beforeend",
+          `<div class="msgReceivedMsg message${[i]}">
+            <div class="msgSize">
+              <p class="Time">(${info[i].time})</p>
+              <p class="To"><b>${info[i].from}</b> to <b>${info[i].to}:</b> </p>
+              <p class="txt"> ${info[i].text}</p>
             </div>
-            <div class="space"></div>`
-            );
-        }
+          </div>
+          <div class="space"></div>`
+        );
+      }
     }
-    let arraySize = info.length-1;
+    let arraySize = info.length -1
     let elementShow = document.querySelector(`.message${arraySize}`);
     elementShow.scrollIntoView();
-}
+};
+
+setInterval(() => {
+    messages = document.querySelector(".chat")
+    promisse = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages");
+    promisse.then(sendAnswer);
+}, 3000);
+console.log(sendAnswer);
