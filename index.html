@@ -6,13 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./reset.css">
     <link rel="stylesheet" href="./style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
     <title>Chat Uol</title>
 </head>
 <body>
+    <div class="login" id="login">
+        //<img class="logo" src="./img/logo.png">
+
+        <input type="text" class="name" 
+        name="message" id="message" 
+        placeholder="Qual o seu nome?"/>
+
+        <div class=""></div>
+        <button onclick="getName()" id="sendName">Login</button>
+    </div>
     <div class="container">
-        <div class="topo"></div>
-        <div class="chat"></div>
-        <div class="barra-inf"></div>
+        <div class="top">
+            <img class="logo" src="./img/logo.png">
+            <ion-icon class="menu" name="people-circle-outline"></ion-icon>
+        </div>
+        <div class="chat" id="chat">
+            <div class="received">
+                <div class="msgSize"></div>
+            </div>
+        </div>
+        <div class="bottom-bar">
+            <textarea type="text" class="send" id="send" 
+            name="message" placeholder="Type here...">
+            </textarea>
+            <ion-icon class="sendOutline" name="send-outline"></ion-icon>
+        </div>
     </div>
     <script src="./script.js"></script>
 </body>

@@ -1,4 +1,4 @@
-let name;
+let name='';
 
 const getName = ()=> {
     name= document.querySelector(".nome").value;
