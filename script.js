@@ -7,7 +7,7 @@ const getName = ()=> {
     urname= document.querySelector(".name").value;
     if(urname){
         document.getElementById("login").style.display= "none";
-        document.getElementById("container").style.display="block";
+        document.getElementById("container").style.display="flex";
         enterChat();
     }
 };
