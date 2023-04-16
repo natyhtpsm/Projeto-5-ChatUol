@@ -2,12 +2,13 @@ let urname;
 let enteredChat;
 let promisseRequest;
 let message;
+let promisseChat;
+let messages;
 
 const getName = ()=> {
     urname= document.querySelector(".name").value;
     if(urname){
         document.getElementById("login").style.display= "none";
-        document.getElementById("container").style.display="flex";
         enterChat();
     }
 };
@@ -50,7 +51,26 @@ const sendServer = () => {
         document.getElementById("send").value = "";
     })
     .catch(logout);
-    
 }
 
+document.addEventListener("keypress", (e) => {
+    if(e.key === "Enter"){
+        const bttnOne=document.querySelector("submit");
+    }
+});
+const logout = () => {
+    window.location.reload();
+};
 
+const errors = () => {
+    alert("Error");
+};
+
+const chatMssgs = () => {
+    promisseChat = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages")
+    promisseChat.then(sendAnswer);
+} 
+
+const sendAnswer = (answr) => {
+    
+}
