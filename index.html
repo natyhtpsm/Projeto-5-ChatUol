@@ -15,10 +15,10 @@
     <div class="login" id="login">
         <img class="logoLogin" src="./img/logo.png">
 
-        <input type="text" class="name" 
+        <input data-test="input-name" type="text" class="name" 
         name="message" id="message" 
         placeholder="Qual o seu nome?"/>
-        <button class="bttn" onclick="getName()" 
+        <button data-test="send-name" class="bttn" onclick="getName()" 
         id="sendName">Login</button>
     </div>
     <div class="container" >
@@ -32,10 +32,10 @@
             </div>
         </div>
         <div class="bottom-bar">
-            <textarea type="text" class="send" id="send" 
+            <textarea data-test="input-message" type="text" class="send" id="send" 
             name="message" placeholder="Type here...">
             </textarea>
-            <ion-icon class="sendOutline" id="submit" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
+            <ion-icon  data-test="send-message" class="sendOutline" id="submit" name="paper-plane-outline" onclick="sendMsg()"></ion-icon>
         </div>
     </div>
     <script src="./script.js"></script>

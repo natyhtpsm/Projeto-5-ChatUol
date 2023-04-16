@@ -80,7 +80,7 @@ const sendAnswer = (answr) => {
       if(info[i].type == "status"){
         messages.insertAdjacentHTML("beforeend",
           `<div class="msgReceivedStts message${[i]}" >
-            <div class="msgSize">
+            <div class="msgSize" data-test="message">
               <p class="Time">(${info[i].time})</p>
               <p class="To"><b>${info[i].from}</b> to <b>${info[i].to}:</b> </p>
               <p class="txt"> ${info[i].text}</p>
@@ -91,7 +91,7 @@ const sendAnswer = (answr) => {
       } else if(info[i].type == "message"){
         messages.insertAdjacentHTML("beforeend",
           `<div class="msgReceivedMsg message${[i]}">
-            <div class="msgSize">
+            <div class="msgSize" data-test="message">
               <p class="Time">(${info[i].time})</p>
               <p class="To"><b>${info[i].from}</b> to <b>${info[i].to}:</b> </p>
               <p class="txt"> ${info[i].text}</p>
