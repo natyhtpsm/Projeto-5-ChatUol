@@ -5,17 +5,14 @@ let message;
 let promisseChat;
 let messages;
 
-
 const getName = ()=> {
     urname=document.querySelector(".name").value;
     if(urname){
         document.getElementById("login").style.display= "none";
         document.getElementById("container").style.display="flex";
-    
         enterChat();
     } 
-};
-
+}; 
 
 const enterChat = () => {
    Enter=axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
@@ -57,20 +54,14 @@ const sendServer = () => {
     .catch(logout);
 }
 
-document.addEventListener("keypress", (e) => {
-    if(e.key === "Enter"){
-        const bttnOne=document.querySelector("submit");
-    }
-});
 const logout = () => {
     window.location.reload();
 };
 
-/* const errors = () => {
+const errors = () => {
     window.location.reload();
-    alert("Error");
 };
- */
+
 const chatMssgs = () => {
     promisseChat = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages")
     promisseChat.then(sendAnswer);
@@ -116,3 +107,9 @@ setInterval(() => {
     promisse.then(sendAnswer);
 }, 3000);
 console.log(sendAnswer);
+
+document.addEventListener("keypress", (e) => {
+    if(e.key === "Enter"){
+        const bttnOne=document.querySelector("submit");
+    }
+});
