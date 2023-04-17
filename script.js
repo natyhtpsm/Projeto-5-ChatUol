@@ -8,7 +8,7 @@ let messages;
 
 const getName = ()=> {
     urname= document.querySelector(".name").value;
-    if(urname){
+    if(urname ){
         document.getElementById("login").style.display= "none";
         document.getElementById("container").style.display="flex";
     
@@ -66,6 +66,7 @@ const logout = () => {
 };
 
 const errors = () => {
+    window.location.reload();
     alert("Error");
 };
 
