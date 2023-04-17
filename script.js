@@ -7,8 +7,8 @@ let messages;
 
 
 const getName = ()=> {
-
-    if(urname ){
+    urname=document.querySelector(".name").value;
+    if(urname){
         document.getElementById("login").style.display= "none";
         document.getElementById("container").style.display="flex";
     
@@ -18,7 +18,7 @@ const getName = ()=> {
 
 
 const enterChat = () => {
-   axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
+   Enter=axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
    .then((answr) => console.log(answr))
    .catch(errors);
    mantainCnnxn();
