@@ -17,13 +17,33 @@ const getName = ()=> {
 };
 
 const enterChat = () => {
+    axios.get('https://mock-api.driven.com.br/api/vm/uol/participants')
+      .then(response => {
+        const participants = response.data;
+        const nameExists = participants.some(participant => participant.name === urname);
+        if (nameExists) {
+          alert('Esse nome já existe. Por favor, escolha outro.');
+        } else {
+          axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', { name: urname })
+            .then(response => {
+              console.log(response.data);
+              mantainCnnxn();
+              mssgChat();
+            })
+            .catch(errors);
+        }
+      })
+      .catch(errors);
+};
+
+/* const enterChat = () => {
    axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
    .then((answr) => console.log(answr))
    .catch(errors);
    mantainCnnxn();
    mssgChat();
 };
-
+ */
 const mantainCnnxn = () => {
     setInterval(() => {
         enterChat = axios
@@ -65,11 +85,11 @@ const logout = () => {
     window.location.reload();
 };
 
-const errors = () => {
+/* const errors = () => {
     window.location.reload();
     alert("Error");
 };
-
+ */
 const chatMssgs = () => {
     promisseChat = axios.get("https://mock-api.driven.com.br/api/vm/uol/messages")
     promisseChat.then(sendAnswer);
