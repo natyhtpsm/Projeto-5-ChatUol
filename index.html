@@ -21,7 +21,7 @@
         <button data-test="send-name" class="bttn" onclick="getName()" 
         id="sendName">Login</button>
     </div>
-    <div class="container" >
+    <div class="container" id="container">
         <div class="top-bar">
             <img class="logo" src="./img/logo.png">
             <ion-icon class="menu" name="people-circle-outline"></ion-icon>
@@ -39,5 +39,7 @@
         </div>
     </div>
     <script src="./script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>axios.defaults.headers.common['Authorization'] = 'lOlnRquZjPQm7xbr85cT4eZU';</script>
 </body>
 </html>

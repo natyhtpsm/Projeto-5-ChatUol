@@ -5,10 +5,12 @@ let message;
 let promisseChat;
 let messages;
 
+
 const getName = ()=> {
     urname= document.querySelector(".name").value;
     if(urname){
         document.getElementById("login").style.display= "none";
+        document.getElementById("container").style.display="flex";
     
         enterChat();
     }
@@ -16,8 +18,8 @@ const getName = ()=> {
 
 const enterChat = () => {
    axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
-   axios.then((answr) => console.log(answr))
-   axios.catch(errors);
+   .then((answr) => console.log(answr))
+   .catch(errors);
    mantainCnnxn();
    mssgChat();
 };
@@ -76,7 +78,7 @@ const sendAnswer = (answr) => {
     messages.innerHTML="";
     let info = answr.data;
     messages = document.getElementById("chat");
-    for(let i = 0 ; i < informacoes.length ; i++){
+    for(let i = 0 ; i < info.length ; i++){
       if(info[i].type == "status"){
         messages.insertAdjacentHTML("beforeend",
           `<div class="msgReceivedStts message${[i]}" >

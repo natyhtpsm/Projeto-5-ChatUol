@@ -1,16 +1,18 @@
+
 body{
     background-color: white;
     overflow-y: hidden;
 }
 
 .container{
-    display: flex;
+    display: none;
     width: 375px;
     background-color: #e5e5e5;
     z-index: 0;
 }
 
 .top-bar{
+    z-index: 10;
     width: 375px;
     position: fixed;
     display: flex;
@@ -40,6 +42,7 @@ body{
     left: 22px;
 }
 .bottom-bar{
+    z-index: 10;
     width: 375px;
     height: 80px;
     display: flex;
@@ -74,6 +77,7 @@ body{
 }
 
 .chat{
+    z-index: 0;
     height: 100vh;
     padding-top: 106px;
     padding-bottom: 84px;
