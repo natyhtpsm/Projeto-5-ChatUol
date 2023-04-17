@@ -8,15 +8,29 @@ let messages;
 
 const getName = ()=> {
     urname= document.querySelector(".name").value;
-    if(urname ){
+    axios.get('https://mock-api.driven.com.br/api/vm/uol/participants')
+    .then(response => {
+      const participants = response.data;
+      const nameExists = participants.some(participant => participant.name === urname);
+      if (nameExists) {
+        alert('Esse nome já existe. Por favor, escolha outro.');
+      } else {
         document.getElementById("login").style.display= "none";
         document.getElementById("container").style.display="flex";
     
         enterChat();
-    }
+      }
+    })
+    .catch(errors);
+ /*     if(urname ){
+        document.getElementById("login").style.display= "none";
+        document.getElementById("container").style.display="flex";
+    
+        enterChat();
+    } */
 };
 
-const enterChat = () => {
+/* const enterChat = () => {
     axios.get('https://mock-api.driven.com.br/api/vm/uol/participants')
       .then(response => {
         const participants = response.data;
@@ -35,15 +49,15 @@ const enterChat = () => {
       })
       .catch(errors);
 };
-
-/* const enterChat = () => {
+ */
+const enterChat = () => {
    axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
    .then((answr) => console.log(answr))
    .catch(errors);
    mantainCnnxn();
    mssgChat();
 };
- */
+
 const mantainCnnxn = () => {
     setInterval(() => {
         enterChat = axios
