@@ -7,49 +7,16 @@ let messages;
 
 
 const getName = ()=> {
-    urname= document.querySelector(".name").value;
-    axios.get('https://mock-api.driven.com.br/api/vm/uol/participants')
-    .then(response => {
-      const participants = response.data;
-      const nameExists = participants.some(participant => participant.name === urname);
-      if (nameExists) {
-        alert('Esse nome já existe. Por favor, escolha outro.');
-      } else {
+
+    if(urname ){
         document.getElementById("login").style.display= "none";
         document.getElementById("container").style.display="flex";
     
         enterChat();
-      }
-    })
-    .catch(errors);
- /*     if(urname ){
-        document.getElementById("login").style.display= "none";
-        document.getElementById("container").style.display="flex";
-    
-        enterChat();
-    } */
+    } 
 };
 
-/* const enterChat = () => {
-    axios.get('https://mock-api.driven.com.br/api/vm/uol/participants')
-      .then(response => {
-        const participants = response.data;
-        const nameExists = participants.some(participant => participant.name === urname);
-        if (nameExists) {
-          alert('Esse nome já existe. Por favor, escolha outro.');
-        } else {
-          axios.post('https://mock-api.driven.com.br/api/vm/uol/participants', { name: urname })
-            .then(response => {
-              console.log(response.data);
-              mantainCnnxn();
-              mssgChat();
-            })
-            .catch(errors);
-        }
-      })
-      .catch(errors);
-};
- */
+
 const enterChat = () => {
    axios.post("https://mock-api.driven.com.br/api/vm/uol/participants", {name: urname})
    .then((answr) => console.log(answr))
